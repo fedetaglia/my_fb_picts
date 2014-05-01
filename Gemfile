@@ -45,6 +45,8 @@ end
 # gem 'debugger', group: [:development, :test]
 
 
+# Use bootstrap sass gem for styling
+gem 'bootstrap-sass'
 
 gem 'devise'
 
