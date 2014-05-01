@@ -20,7 +20,6 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
                           email:auth.info.email,
                           password:Devise.friendly_token[0,20],
                         )
-      binding.pry
     end    
   end
   # uncomment for add facebook friends
