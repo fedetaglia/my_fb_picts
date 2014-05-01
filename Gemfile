@@ -47,3 +47,10 @@ end
 
 
 gem 'devise'
+
+# gems
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'oauth2'
+gem "koala"
+gem 'fb_graph'
