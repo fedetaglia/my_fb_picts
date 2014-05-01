@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable
+  devise :omniauthable, :omniauth_providers => [:facebook]
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
   user = User.where( provider: auth.provider, uid: auth.uid).first
@@ -12,12 +12,15 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     if registered_user
       user = registered_user
     else
-      user = User.create(username:auth.extra.raw_info.name,
+      user = User.create(
+                          first_name:auth.info.first_name,
+                          last_name:auth.info.last_name,
                           provider:auth.provider,
                           uid:auth.uid,
                           email:auth.info.email,
                           password:Devise.friendly_token[0,20],
                         )
+      binding.pry
     end    
   end
   # uncomment for add facebook friends

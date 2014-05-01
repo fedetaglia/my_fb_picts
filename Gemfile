@@ -54,3 +54,11 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 gem "koala"
 gem 'fb_graph'
+
+
+group :development, :test do
+  gem 'dotenv-rails'
+  # gem for debugging
+  gem 'pry'
+  gem 'pry-debugger'
+end
