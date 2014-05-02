@@ -1,1 +1,12 @@
 <h4>photos index</h4>
+
+
+<% @photos.each do |photo|  %>
+
+<div class="photo">
+  <img src="<%= photo['images'].last['source'] %>" alt="" value="<%= photo['id'] %>" >
+  <p><%= photo['name'] %> </p>
+</div>
+
+
+<% end %>

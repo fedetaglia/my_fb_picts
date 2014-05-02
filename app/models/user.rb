@@ -22,9 +22,15 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
                         )
     end    
   end
+
   # uncomment for add facebook friends
   # add_fb_friends(user, auth);
-  user
+  [user, auth]
+end
+
+
+def get_fb_photos(user,auth)
+ 
 end
 
 end
