@@ -1,8 +1,45 @@
-<h4>landing</h4>
-
-
-<div class="row">
-  <h3>
-  <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), {class: 'btn btn-primary' } %>
-  </h3>
+<div class="landing-first">
+  <h1 class="title styled">get your photos</h1>
+  <%= link_to "enter", pages_path , {class: 'btn btn-warning btn-enter'} %>
 </div>
+
+
+<div class="landing-intro">
+  <div class="container">
+    <div class="row l-intro">
+      <div class="l-box">
+        <div class="l-title">start</div>
+        <div class="l-ball"></div>
+      </div>  
+      <div class="l-box">
+        <div class="l-title">connect</div>
+        <div class="l-ball"></div>
+      </div>  
+      <div class="l-box">
+        <div class="l-title">select</div>
+        <div class="l-ball"></div>
+      </div>  
+      <div class="l-box">
+        <div class="l-title">download</div>
+        <div class="l-ball"></div>
+      </div>  
+    </div>
+    <%= link_to "enter", pages_path , {class: 'btn btn-warning btn-enter'} %>
+
+
+
+  </div>
+
+</div>
+
+<div class="landing-contact">
+ <div class="container">
+     <h2 id="section-2">Federico</h2>
+  <%= image_tag "federico.JPG", size: '250x250',class:'img-circle pull-right' %>
+
+  <p>After five years working as management engineer, Federico is studying to begin a new carrer as web developer. Born in Como, Italy, he is now based in Sydney where he join General Assembly to learn building application using Ruby on Rails, HTML5 and CSS3, javascript, jQuery .. </p>
+
+ </div>
+</div>
+
+
