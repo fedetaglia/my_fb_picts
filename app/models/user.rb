@@ -6,31 +6,16 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
 def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  user = User.where( provider: auth.provider, uid: auth.uid).first
-  if !user
-    registered_user = User.where( email: auth.info.email).first
-    if registered_user
-      user = registered_user
-    else
-      user = User.create(
-                          first_name:auth.info.first_name,
-                          last_name:auth.info.last_name,
-                          provider:auth.provider,
-                          uid:auth.uid,
-                          email:auth.info.email,
-                          password:Devise.friendly_token[0,20],
-                        )
-    end    
+  user = User.where(email: auth.info.email).first
+  if user
+    user.uid = auth.uid
+    user.fb_token = auth['credentials']['token']
+    user.save
   end
-
+  binding.pry
   # uncomment for add facebook friends
   # add_fb_friends(user, auth);
   [user, auth]
-end
-
-
-def get_fb_photos(user,auth)
- 
 end
 
 end

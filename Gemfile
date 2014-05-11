@@ -56,7 +56,13 @@ gem 'omniauth-facebook'
 gem 'oauth2'
 gem "koala"
 gem 'fb_graph'
+gem 'omniauth-instagram'
+gem 'instagram'
 
+
+
+# gem for API query
+gem "httparty"
 
 group :development, :test do
   gem 'dotenv-rails'

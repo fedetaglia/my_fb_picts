@@ -5,13 +5,23 @@
     <div class="photo-container">
       <% if @fb_photos %>
         <% @fb_photos.each do |photo| %>
-          photo.name
+          <img src=<%= photo['picture'] %> alt="photo['picture']">
+          <img src=<%= photo['source'] %>  alt="photo['source']">
+          <img src=<%= photo['images'][0]['source'] %>  alt="photo['images']">
         <% end %>
       <% end %>
     </div>
   </div>
   <div class="col-md-5 social social-2">
     <h2>instagram</h2>
+    <a href="/auth/instagram"><span class="side top">Authorize</span>
+    <a href="/auth/instagram/test"><span class="side top">Authorize2</span>
+
+    
+
+    <div class="photo-container">
+      
+    </div>
   </div>
 
 </div>

@@ -60,6 +60,8 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
     fb_graph (2.7.11)
       httpclient (>= 2.2.0.2)
       multi_json (>= 1.3)
@@ -67,8 +69,16 @@ GEM
       tzinfo
     hashie (2.0.5)
     hike (1.2.3)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     httpclient (2.3.4.1)
     i18n (0.6.9)
+    instagram (1.0.0)
+      faraday (>= 0.7, < 0.10)
+      faraday_middleware (>= 0.8, < 0.10)
+      hashie (>= 0.4.0)
+      multi_json (~> 1.0, >= 1.0.3)
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
@@ -102,6 +112,9 @@ GEM
       rack (~> 1.0)
     omniauth-facebook (1.6.0)
       omniauth-oauth2 (~> 1.1)
+    omniauth-instagram (1.0.1)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     omniauth-oauth2 (1.1.2)
       faraday (>= 0.8, < 0.10)
       multi_json (~> 1.3)
@@ -185,12 +198,15 @@ DEPENDENCIES
   devise
   dotenv-rails
   fb_graph
+  httparty
+  instagram
   jbuilder (~> 1.2)
   jquery-rails
   koala
   oauth2
   omniauth
   omniauth-facebook
+  omniauth-instagram
   pg
   pry
   pry-debugger

@@ -1,21 +1,48 @@
-  <div class="row">
-    <h3>
-    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), {class: 'btn btn-primary' } %>
-    </h3>
+<div class="row connect">
+  
+  <div class="col-md-10 col-md-offset-1 social social-1">
+    <h2>facebook</h2>
+    <span class="connect_social_1"><%= link_to "connect", user_omniauth_authorize_path(:facebook) %></span>
+    
+    <div class="photo-container">
+
+
+    <%= form_tag( down_photos_path, method: 'get') do %>   
+      <% if @fb_photos %>
+        <div class="photo-container-social-1">
+          <% @fb_photos.each do |photo| %>
+          <div class="photo-item">
+            <img src=<%= photo['picture'] %> alt="photo['picture']" class='photo-image'>
+            <div class="photo-check">
+              <%= check_box_tag "#{photo['images'][0]['source']}"%>
+            </div>
+          </div>
+        <% end %>
+        </div>
+      <% end %>
+    <%= submit_tag "download", class: 'photo-download' %>
+    <% end %>
+    </div>
   </div>
+</div>
 
-
-
-
-<h4>photos index</h4>
-
-
-<% @photos.each do |photo|  %>
-
-<div class="photo">
-  <img src="<%= photo['images'].last['source'] %>" alt="" value="<%= photo['id'] %>" >
-  <p><%= photo['name'] %> </p>
+<div class="row thanks">
+  <h2>thanks for downloding with us</h2>
+  <h4>your download should start in a few seconds</h4>
+  <p><%= link_to 'Go back', photos_path %> if you want to download more photos</p>
 </div>
 
 
-<% end %>
+<script>
+
+  $(document).ready(function() {
+    
+    $('.thanks').hide();
+
+    $('.photo-download').on('click', function() {
+      $('.connect').hide();
+      $('.thanks').show();
+    })
+
+})
+</script>

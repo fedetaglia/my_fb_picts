@@ -17,11 +17,11 @@
 
 .landing-first{ 
   background: #37DE6A url(fb-foto.png) no-repeat fixed center;
-  height: 680px;
+  height: 600px;
 }
 
 .landing-intro {
-  height: 680px;
+  height: 640px;
 }
 
 .landing-contact {
@@ -35,7 +35,7 @@
 }
 
 .title {
-  padding-top: 250px;
+  padding-top: 230px;
   margin: 0 auto;
   width: 100%;
   text-align: center;
@@ -75,3 +75,89 @@
   border-radius: 50px;
   background: #37DE6A;
 }
+
+.img-circle {
+  margin-bottom: 30px;
+}
+.about {
+  margin-right: 100px;
+  padding-right: 200px;
+}
+
+.form {
+  display: block;
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 20px;
+}
+
+/* index style */ 
+
+.l-square {
+  width: 100%;
+  height: 10px;
+  background: #37DE6A;
+  display:block;
+}
+.l-triangle {
+  display: block;
+  margin: 0 auto;
+  width: 0; 
+  height: 0; 
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 40px solid #37DE6A;
+}
+
+#token {
+  display: none;
+}
+
+
+/* download page */
+
+
+.social {
+
+}
+
+.social-1 {
+
+}
+
+.photo-container {
+  width: 100%;
+  height: 100px;
+}
+
+.photo-container-social-1 {
+  display: block;
+  float: left;
+}
+
+.photo-item {
+  display: block;
+  float: left;
+  padding: 10px;
+  border: black solid 1px;
+  margin: 10px;
+  width: 150px;
+  height: 175px;
+}
+
+.photo-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.photo-check {
+  width: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.photo-download {
+  display: block;
+  margin: 0 auto;
+}
+

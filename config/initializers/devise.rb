@@ -4,14 +4,13 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '7c5a09f65d3e18f5b7e5f957fc2f4a4412fc7c48d5ca263f39ed6ec718ab7a7a3c78a2cdbe4424ae98372c0e0e97ff0f118c4006b5feb597436fa6d3dda5b219'
+  config.secret_key = '7c5a09f65d3e18f5b7e5f957fc2f4a4412fc7c48d5ca263f39ed6ec718ab7a7a3c78a2cdbe4424ae98372c0e0e97ff0f118c4006b5feb597436fa6d3dda5b219'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
-
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
@@ -253,13 +252,4 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-
-  require "omniauth-facebook"
-    config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], {
-    scope: 'user_photos,friends_photos',
-    strategy_class: OmniAuth::Strategies::Facebook,
-    provider_ignores_state: true,
-  }
-
-
 end
