@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  user = User.where(email: auth.info.email).first
+def self.find_for_facebook_oauth(auth, user)
+  binding.pry
   if user
     user.uid = auth.uid
     user.fb_token = auth['credentials']['token']

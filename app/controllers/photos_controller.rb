@@ -10,14 +10,14 @@ class PhotosController < ApplicationController
 skip_before_filter :authenticate_user!, only: [:index, :landing]
 
 def index
-  if current_user.fb_token
+  if current_user && current_user.fb_token
     @user = current_user
     graph = Koala::Facebook::API.new(@user.fb_token,ENV['FB_APP_SECRET'])
     @fb_photos = graph.graph_call('/me/photos',options = {limit: 25})
     # photo['images'][0]['source']
   end
 
-  if current_user.ig_token
+  if current_user && current_user.ig_token
 
   end
 

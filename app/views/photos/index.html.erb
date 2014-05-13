@@ -6,7 +6,7 @@
     
     <div class="photo-container">
 
-    <% if current_user.fb_token %>
+    <% if current_user && current_user.fb_token %>
       <%= form_tag( down_photos_path, method: 'get') do %>   
         <% if @fb_photos %>
           <div class="photo-container-social-1">
