@@ -9,8 +9,7 @@ class UsersController < ApplicationController
 
   def set_instagram_token
     response = Instagram.get_access_token(params[:code], :redirect_uri => CALLBACK_URL)
-    
-    binding.pry
+
     @user = current_user
     @user.ig_token = request.env['omniauth.auth']["credentials"]["token"]
     @user.save

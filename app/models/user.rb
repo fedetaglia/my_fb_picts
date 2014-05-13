@@ -12,7 +12,6 @@ def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user.fb_token = auth['credentials']['token']
     user.save
   end
-  binding.pry
   # uncomment for add facebook friends
   # add_fb_friends(user, auth);
   [user, auth]
