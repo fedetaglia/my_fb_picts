@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
 def self.find_for_facebook_oauth(auth, user)
-  binding.pry
   if user
     user.uid = auth.uid
     user.fb_token = auth['credentials']['token']
