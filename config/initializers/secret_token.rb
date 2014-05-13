@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-MyFbPicts::Application.config.secret_key_base = '39a9de0632b87ff6e1aca2888daa58974dfcc48b41bc697dc294b29f822fd45ae2412b0461c0f606c7a1d1da11eaf31408e84bb7e1458ccc4311dd8f8005ca85'
+MyFbPicts::Application.config.secret_key_base = ENV['RAILS_SECRET_KEY']
