@@ -59,6 +59,8 @@ gem 'fb_graph'
 gem 'omniauth-instagram'
 gem 'instagram'
 
+# gem for building zip  
+gem 'rubyzip',  "~> 1.1", require: 'zip'
 
 
 # gem for API query

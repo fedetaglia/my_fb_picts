@@ -1,9 +1,12 @@
-require "instagram"
+require 'instagram'
 require 'open-uri'
+require 'fileutils'
 
 IG_URI_CALLBACK = 'https://0.0.0.0:3000/auth/instagram/callback'
 
 class PhotosController < ApplicationController
+
+
 skip_before_filter :authenticate_user!, only: [:index, :landing]
 
 def index
@@ -31,9 +34,11 @@ def show
 end
 
 def down
+  folder_path = "#{Rails.root}/tmp/my_photos_#{current_user.id}"
   downloads = get_photo_url(params)
-  down_photos(downloads)
-
+  save_photos_on_server( downloads, folder_path )
+  zip_file_path = create_a_zip_file( folder_path, downloads )
+  send_zip_file( zip_file_path )
 end
 
 
@@ -50,16 +55,40 @@ def get_photo_url(params)
   downloads
 end
 
-def down_photos(downloads)
-  count = 0
-    downloads.each do |down|
-      open(down, 'r') do |file|
-         send_data file.read, type: file.content_type , disposition: 'attachment'
-         # file << open(down).read
+
+def save_photos_on_server(downloads, folder_path)
+    Dir.mkdir(folder_path) unless File.exist?(folder_path)
+    count = 0
+    Dir.chdir(folder_path) do
+      downloads.each do |photo_url|
+        open("image_#{count}.jpg", 'wb') do |file|
+          file << open(photo_url).read
+        end
+        count = count + 1
       end
-      count = count + 1
     end
 end
 
+def create_a_zip_file(folder_path,downloads)
+  zip_file_path = "#{Rails.root}/tmp/my_photos_#{current_user.id}.zip"
+  Zip::File.open( zip_file_path, Zip::File::CREATE ) do |zipfile|
+    count = 0
+    downloads.each do |down|
+      open(folder_path + "/image_#{count}.jpg", 'r') do |photo|
+        zipfile.add("photo_#{count}.jpg",photo)
+      end
+      count = count + 1
+    end
+  end
+  FileUtils.remove_dir folder_path, true
+  zip_file_path
+end
+
+def send_zip_file(zip_path)
+  File.open(zip_path, 'r') do |f|
+    send_data f.read, type: "application/zip", filename: "my_photos.zip"
+  end
+  File.delete(zip_path)
+end
 
 end
