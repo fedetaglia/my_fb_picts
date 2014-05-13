@@ -16,7 +16,7 @@
 
 
 .landing-first{ 
-  background: #37DE6A url(fb-foto.png) no-repeat fixed center;
+  background: #37DE6A url(image_path('fb-foto.png')) no-repeat fixed center;
   height: 600px;
 }
 
@@ -45,8 +45,20 @@
 
 .btn-enter {
   display: block;
+  width: 160px;
+  margin: 10px auto;
+}
+
+.btn-center {
+  display: block;
   width: 70px;
   margin: 10px auto;
+}
+
+.float {
+  display: block;
+  float: left;
+  margin: 0 5px;
 }
 
 .l-intro {

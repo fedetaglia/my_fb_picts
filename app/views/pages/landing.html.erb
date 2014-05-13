@@ -7,12 +7,15 @@
       <%= f.email_field :email, autofocus: true, placeholder: 'Email', class: 'form-control' %>
       <%= f.password_field :password, autocomplete: "off", placeholder: 'Password', class: 'form-control' %>
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Password Confirmation', class: 'form-control' %> 
-      <div class="btn-enter"><%= f.submit "Sign up", class: 'btn btn-warning' %></div>
+      <div class="btn-enter">
+          <%= f.submit "Sign up", class: 'btn btn-warning float' %>
+          <%= link_to "Login", new_user_session_path, :class => 'btn btn-default float'  %>
+      </div>
+
     <% end %>
     </div>
   </div>
-  <%= link_to "Login", new_user_session_path, :class => 'btn'  %>
-  <%= link_to "enter", photos_path , {class: 'btn btn-warning btn-enter'} %>
+
 </div>
 
 
@@ -38,9 +41,7 @@
         <div class="l-ball"></div>
       </div>  
     </div>
-    <%= link_to "enter", photos_path , {class: 'btn btn-warning btn-enter'} %>
-
-
+    <%= link_to "Login", new_user_session_path, :class => 'btn btn-warning btn-center'  %>
 
   </div>
 
