@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-skip_before_filter :authenticate_user!, only: [:landing, :index]
+skip_before_filter :authenticate_user!, only: [:landing, :index, :privacy]
 respond_to :html, :json
 
   def landing
