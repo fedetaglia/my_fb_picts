@@ -13,7 +13,15 @@
  */
 @import "bootstrap";
 
+.icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;  
+}
 
+a:hover {
+  text-decoration: none;
+}
 
 .landing-first{ 
   background: #37DE6A url(image_path('fb-foto.png')) no-repeat fixed center;

@@ -8,7 +8,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <p class="navbar-brand"><%= link_to 'getyourphotos', photos_path %></p>
+
+        <p class="navbar-brand">
+          
+          <%= link_to photos_path do %>
+            <%= image_tag 'getyourphotos.png', class: 'icon' %>
+            getyourphotos
+          <% end %>
+
+        </p>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -18,7 +26,7 @@
 
             
           <% if user_signed_in? %>
-            <li><%= link_to current_user.first_name, edit_user_registration_path,  :class => 'btn' %></li>
+            <li><%= link_to current_user.email, edit_user_registration_path,  :class => 'btn' %></li>
             <li><%= link_to "Logout", destroy_user_session_path, method: :delete,  :class => 'btn'  %></li>
          <% end %>
 
