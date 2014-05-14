@@ -18,4 +18,6 @@ MyFbPicts::Application.routes.draw do
   
   resources :pages
   
+  get ':action', to: 'pages#action'  
+  
 end
