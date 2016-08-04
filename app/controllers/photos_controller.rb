@@ -14,7 +14,6 @@ def index
     @user = current_user
     graph = Koala::Facebook::API.new(@user.fb_token,ENV['FB_APP_SECRET'])
     @fb_photos = graph.graph_call('/me/photos',options = {limit: 25})
-    # photo['images'][0]['source']
     logger.debug "DEBUGGER **** I found #{ @fb_photos.length } photos on your facebook ******"
   end
 

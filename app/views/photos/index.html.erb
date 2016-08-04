@@ -1,13 +1,18 @@
 <div class="row connect">
-  
+
   <div class="col-md-10 col-md-offset-1 social social-1">
+
     <h2>facebook</h2>
-    <span class="connect_social_1"><%= link_to "connect", user_omniauth_authorize_path(:facebook) %></span>
-    
+    <% if current_user && current_user.fb_token.empty? %>
+      <span class="connect_social_1"><%= link_to "connect", user_facebook_omniauth_authorize_path %></span>
+    <% else %>
+      <h5>Connected!</h5>
+    <% end %>
+
     <div class="photo-container">
 
     <% if current_user && current_user.fb_token %>
-      <%= form_tag( down_photos_path, method: 'get') do %>   
+      <%= form_tag( down_photos_path, method: 'get') do %>
         <% if @fb_photos %>
           <div class="photo-container-social-1">
             <% @fb_photos.each do |photo| %>
@@ -37,7 +42,7 @@
 <script>
 
   $(document).ready(function() {
-    
+
     $('.thanks').hide();
 
     $('.photo-download').on('click', function() {
